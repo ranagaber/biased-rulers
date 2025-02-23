@@ -189,10 +189,10 @@ def WEAT_test(X, Y, A, B, n_samples, cossims):
     the probability that a random even partition X_i, Y_i of X u Y
     satisfies P[s(X_i, Y_i, A, B) > s(X, Y, A, B)]
     """
-    X = np.array(list(X), dtype=np.int)
-    Y = np.array(list(Y), dtype=np.int)
-    A = np.array(list(A), dtype=np.int)
-    B = np.array(list(B), dtype=np.int)
+    X = np.array(list(X), dtype=np.int64)
+    Y = np.array(list(Y), dtype=np.int64)
+    A = np.array(list(A), dtype=np.int64)
+    B = np.array(list(B), dtype=np.int64)
 
     assert len(X) == len(Y)
     size = len(X)
@@ -248,8 +248,8 @@ def test(
     (X, Y) = convert_keys_to_ints(X, Y)
     XY = X.copy()
     XY.update(Y)
-    X = np.array(list(X), dtype=np.int)
-    Y = np.array(list(Y), dtype=np.int)
+    X = np.array(list(X), dtype=np.int64)
+    Y = np.array(list(Y), dtype=np.int64)
     for i in range(len(female_list)):
         AA = female_list[i]
         #     print(AA)
@@ -277,8 +277,8 @@ def test(
         AB.update(B)
 
         cossims = construct_cossim_lookup(XY, AB)
-        A = np.array(list(A), dtype=np.int)
-        B = np.array(list(B), dtype=np.int)
+        A = np.array(list(A), dtype=np.int64)
+        B = np.array(list(B), dtype=np.int64)
 
         s_wAB_memo = s_wAB(X, Y, cossims=cossims)
         df1, df2 = s_XAB_df(A, B, s_wAB_memo)
